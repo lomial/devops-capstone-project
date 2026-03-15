@@ -1,4 +1,6 @@
 ![CI](https://github.com/lomial/devops-capstone-project/actions/workflows/ci.yml/badge.svg)
+![Status](https://github.com/lomial/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)
+
 # devops-capstone-project
 
 Customer Accounts Microservice.
