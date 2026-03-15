@@ -168,3 +168,11 @@ class TestAccountService(TestCase):
         response.headers.get("Referrer-Policy"),
         "strict-origin-when-cross-origin"
     )
+==============================================================================
+
+    def test_cors_security(self):
+      response = self.client.get('/', environ_overrides=HTTPS_ENVIRON)
+      self.assertEqual(response.status_code, status.HTTP_200_OK)
+      # Проверка наличия заголовка CORS
+      self.assertEqual(response.headers.get('Access-Control-Allow-Origin'), '*')
+
