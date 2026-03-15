@@ -143,3 +143,23 @@ class TestAccountService(TestCase):
         """It should return 404 if account does not exist"""
         resp = self.client.get("/accounts/0")
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
+==============================================================================
+    def test_security_headers(self):
+    """It should return security headers"""
+    response = self.client.get(
+        "/",
+        environ_overrides=HTTPS_ENVIRON
+    )
+
+    self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    self.assertEqual(response.headers.get("X-Frame-Options"), "SAMEORIGIN")
+    self.assertEqual(response.headers.get("X-Content-Type-Options"), "nosniff")
+    self.assertEqual(
+        response.headers.get("Content-Security-Policy"),
+        "default-src 'self'; object-src 'none'"
+    )
+    self.assertEqual(
+        response.headers.get("Referrer-Policy"),
+        "strict-origin-when-cross-origin"
+    )
