@@ -20,6 +20,7 @@ DATABASE_URI = os.getenv(
 BASE_URL = "/accounts"
 
 
+
 ######################################################################
 #  T E S T   C A S E S
 ######################################################################
@@ -33,7 +34,11 @@ class TestAccountService(TestCase):
         app.config["DEBUG"] = False
         app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
         app.logger.setLevel(logging.CRITICAL)
+        talisman.force_https = False
         init_db(app)
+
+
+      
 
     @classmethod
     def tearDownClass(cls):
