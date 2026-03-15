@@ -1,4 +1,4 @@
-![CI](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/lomial/devops-capstone-project/actions/workflows/ci.yml/badge.svg)
 # devops-capstone-project
 
 Customer Accounts Microservice.
